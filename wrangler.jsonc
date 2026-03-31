@@ -13,7 +13,17 @@
 	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
-	]
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "feedback-db",
+			"database_id": "2f42c4ab-d972-4bc1-80b3-ba1dfe791ff6"
+		}
+	],
+	"ai": {
+	"binding": "AI"
+}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
