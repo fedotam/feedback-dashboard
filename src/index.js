@@ -37,8 +37,13 @@ export default {
 	return Response.json(results);
   }
   
-  // Analyze feedback with Workers AI
   async function getAnalysis(env) {
+	// Check KV cache first
+	const cached = await env.ANALYSIS_CACHE.get("latest_analysis");
+	if (cached) {
+	  return Response.json({ ...JSON.parse(cached), cached: true });
+	}
+  
 	const { results } = await env.DB.prepare(
 	  "SELECT content, sentiment, theme, priority, source FROM feedback"
 	).all();
@@ -74,7 +79,12 @@ export default {
 	  analysis = { error: "Could not parse AI response", raw: response.response };
 	}
   
-	return Response.json(analysis);
+	// Save to KV cache for 1 hour
+	await env.ANALYSIS_CACHE.put("latest_analysis", JSON.stringify(analysis), {
+	  expirationTtl: 3600,
+	});
+  
+	return Response.json({ ...analysis, cached: false });
   }
   
   // Serve the dashboard HTML

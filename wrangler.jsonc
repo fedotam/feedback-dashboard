@@ -24,7 +24,13 @@
 	"ai": {
 		"binding": "AI",
 		"remote": true
-	}
+	},
+	"kv_namespaces": [
+		{
+			"binding": "ANALYSIS_CACHE",
+			"id": "c9d1f8f557c042db89212712826c849c"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
