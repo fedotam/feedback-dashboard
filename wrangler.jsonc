@@ -18,12 +18,13 @@
 		{
 			"binding": "DB",
 			"database_name": "feedback-db",
-			"database_id": "2f42c4ab-d972-4bc1-80b3-ba1dfe791ff6"
+			"database_id": "e2d2ff21-ccc2-4f89-a6e0-6ef29f11aa8c"
 		}
 	],
 	"ai": {
-	"binding": "AI"
-}
+		"binding": "AI",
+		"remote": true
+	}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
